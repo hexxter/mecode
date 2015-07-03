@@ -111,14 +111,6 @@ class TestG(TestGFixture):
         self.expect_cmd('G4 P10')
         self.assert_output()
 
-    def test_setup(self):
-        self.outfile = TemporaryFile()
-        self.g = G(outfile=self.outfile, print_lines=False)
-        self.expected = ""
-        self.expect_cmd(open(os.path.join(HERE, '../header.txt')).read())
-        self.expect_cmd('G91')
-        self.assert_output()
-
     def test_home(self):
         self.g.home()
         self.expect_cmd("""
